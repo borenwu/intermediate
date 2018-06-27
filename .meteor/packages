@@ -36,3 +36,6 @@ gwendall:auth-client-callbacks
 
 
 meteortoys:allthings
+check
+robertlowe:persistent-reactive-dict
+twbs:bootstrap
