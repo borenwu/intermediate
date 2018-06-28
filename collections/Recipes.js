@@ -7,6 +7,9 @@ export const Recipes = new Mongo.Collection('recipes');
 Recipes.allow({
     insert: function (userId, doc) {
         return !!userId;
+    },
+    update: function (userId, doc) {
+        return !!userId;
     }
 })
 
@@ -35,15 +38,15 @@ RecipeSchema = new SimpleSchema({
     igredients: {
         type: Array,
         optional: true,
-      },
+    },
     'igredients.$': Ingredient,
 
-    inMenu:{
+    inMenu: {
         type: Boolean,
-        defaultValue:false,
-        optional:true,
-        autoform:{
-            type:"hidden"
+        defaultValue: false,
+        optional: true,
+        autoform: {
+            type: "hidden"
         }
     },
 
@@ -67,6 +70,19 @@ RecipeSchema = new SimpleSchema({
         autoform: {
             type: "hidden"
         }
+    }
+})
+
+Meteor.methods({
+    toggleMenuItem: function (id, currentState) {
+        Recipes.update(id, {
+            $set: {
+                inMenu: !currentState
+            }
+        })
+    },
+    deleteRecipe:function(id){
+        Recipes.remove(id)
     }
 })
 
