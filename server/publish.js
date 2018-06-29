@@ -16,5 +16,7 @@ Meteor.publish('singleRecipe', function (id) {
     return Recipes.find({ _id: id })
 })
 
-
+Meteor.publish('wechatusers',function(){
+    return WechatUsers.find({})
+})
 
