@@ -8,6 +8,7 @@ Template.RecipeSingle.onCreated(function () {
         let id = FlowRouter.getParam('id')
         self.subscribe('singleRecipe', id)
     })
+    
 })
 
 Template.RecipeSingle.helpers({

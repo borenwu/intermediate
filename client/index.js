@@ -9,10 +9,21 @@ import './menu/Menu.js'
 import './shopping-list/ShoppingList.js'
 import '../lib/routes'
 
+import './noRoutesTemplate.html'
+
 import { Recipes } from '../collections/Recipes'
 window.Recipes = Recipes
 
 
 Accounts.ui.config({
     passwordSignupFields: 'USERNAME_ONLY'
+});
+
+Router.configure({
+  
+    noRoutesTemplate: 'noRoutesTemplate',
+  
+    // .
+    // .
+    // .
 });
